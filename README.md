@@ -1,6 +1,6 @@
 # Java P2P File Transfer
 
-This is a simple peer-to-peer file transfer application in Java. You can start one peer in receive mode to listen for incoming file transfers, and another peer in send mode to send files.
+This is a simple peer-to-peer file transfer application in Java. When you run the peer, it prompts you to send or receive files interactively.
 
 ## Prerequisites
 
@@ -14,32 +14,24 @@ javac -d bin src/Peer.java
 
 ## Usage
 
-### Receive
+After compilation, simply run the peer without arguments; it will prompt for actions:
 
 ```bash
-java -cp bin Peer receive <port>
+java -cp bin Peer
 ```
 
-This will start a server listening on the specified port and save incoming files in the current directory.
+When launched, you’ll see a menu:
 
-### Send
-
-```bash
-java -cp bin Peer send <host> <port> <file-path>
+```
+Select an option:
+ 1) Receive a file
+ 2) Send a file
+ 0) Exit
+Enter choice:
 ```
 
-This will connect to the receiver at `<host>:<port>` and send the specified file.
+**Receive** mode (choice `1`): you’ll be prompted for the listening port; the incoming file will be saved in the current directory under its original name.  
 
-## Example
+**Send** mode (choice `2`): you’ll be prompted for the target host, port, and file path; the chosen file will be sent to the receiver.
 
-In one terminal, start the receiver:
-
-```bash
-java -cp bin Peer receive 5000
-```
-
-In another terminal, send a file:
-
-```bash
-java -cp bin Peer send 127.0.0.1 5000 /path/to/file.txt
-```
+Choose `0` to exit the application.
