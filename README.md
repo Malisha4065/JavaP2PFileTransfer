@@ -32,6 +32,7 @@ Enter choice:
 
 **Receive** mode (choice `1`): you’ll be prompted for the listening port; the incoming file will be saved in the current directory under its original name.  
 
-**Send** mode (choice `2`): you’ll be prompted for the target host, port, and file path; the chosen file will be sent to the receiver.
+**Send** mode (choice `2`): you’ll be prompted for the target host, port, and file path; the chosen file will be sent to the receiver.  
+Paths beginning with `~` are automatically expanded to your home directory.
 
 Choose `0` to exit the application.

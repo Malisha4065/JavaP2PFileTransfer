@@ -19,9 +19,13 @@ public class Peer {
                     String host = scanner.nextLine().trim();
                     System.out.print("Enter port to connect to: ");
                     int port = Integer.parseInt(scanner.nextLine().trim());
-                    System.out.print("Enter file path to send: ");
-                    Path file = Paths.get(scanner.nextLine().trim());
-                    sendFile(host, port, file);
+                System.out.print("Enter file path to send: ");
+                String pathInput = scanner.nextLine().trim();
+                if (pathInput.startsWith("~")) {
+                    pathInput = System.getProperty("user.home") + pathInput.substring(1);
+                }
+                Path file = Paths.get(pathInput);
+                sendFile(host, port, file);
                 } else if ("0".equals(choice)) {
                     System.out.println("Exiting.");
                     break;
